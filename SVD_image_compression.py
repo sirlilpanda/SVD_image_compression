@@ -9,7 +9,7 @@ def compress_image(filename : str, rgb_ranks : tuple[int, int, int] = (1, 1, 1))
     image = mpimg.imread(filename) \
                  .astype(np.float64) #converts all points to floats
     # converts image
-    image = image if image.max <= 1 else image/255 
+    image = image if image.max() <= 1 else image/255 
     # saves transparence layer
     transparent_layer = image[:, :, 3]
     #cuts out the transparent_layer
